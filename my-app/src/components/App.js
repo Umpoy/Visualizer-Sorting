@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header/Header';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>Hello World</h1>
+        <Header />
       </div>
     )
   }
