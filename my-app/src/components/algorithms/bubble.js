@@ -1,20 +1,25 @@
-const numArray = [8, 4, 7, 5, 6, 9, 2, 1, 3];
 
-const bubbleSort = (array) => {
+
+
+const bubbleSort = (data) => {
+    const array = [...data];
     let swap = true;
     let hold;
+    const newArray = []
     while (swap) {
         swap = false;
         for (var i = 0; i < array.length - 1; i++) {
-            hold = array[i];
-            if (hold > array[i + 1]) {
+            if (array[i] > array[i + 1]) {
+                hold = array[i];
                 array[i] = array[i + 1];
                 array[i + 1] = hold;
+                let holdArray = [...array]
+                newArray.push(holdArray)
                 swap = true
             }
         }
     }
-    return array
+    return newArray
 }
 
-console.log(bubbleSort(numArray));
+export default bubbleSort

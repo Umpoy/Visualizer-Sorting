@@ -1,27 +1,52 @@
 import React, { Component } from 'react';
-import array from '../helper/data'
+import Bar from './Bar';
+
+import dataArray from '../helper/data';
+import bubbleSort from '../algorithms/bubble';
+
 
 class Graph extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            dataArray,
+            bigArray: []
+        }
     }
 
     renderToGraph() {
-        return array.map((item) => {
+        return this.state.dataArray.map((item) => {
             return (
-                <div className="bar">
-                    <p>{item}</p>
-                </div >
+                <Bar item={item} />
             )
         })
     }
+
+    swapNumbers = () => {
+        this.setState({ bigArray: bubbleSort(this.state.dataArray) });
+        this.renderAnimation();
+    }
+
+    renderAnimation = () => {
+        let i = 0;
+        const interval = setInterval(() => {
+            this.setState({ dataArray: this.state.bigArray[i] });
+            i++
+            if (i >= this.state.bigArray.length) {
+                clearInterval(interval);
+                return
+            }
+        }, 1000)
+
+    }
+
     render() {
-        console.log(array);
         return (
             <div className="graph">
                 {this.renderToGraph()}
+                <button className="btn btn-primary" onClick={this.swapNumbers}>Click</button>
             </div>
+
         )
     }
 }
