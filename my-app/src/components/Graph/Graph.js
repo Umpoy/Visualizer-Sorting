@@ -36,7 +36,7 @@ class Graph extends Component {
                 clearInterval(interval);
                 return
             }
-        }, 1000)
+        }, 500)
 
     }
 
