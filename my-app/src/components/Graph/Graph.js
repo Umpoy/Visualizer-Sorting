@@ -4,13 +4,16 @@ import Bar from './Bar';
 import dataArray from '../helper/data';
 import bubbleSort from '../algorithms/bubble';
 
-
+const style = {
+    height: '50vh'
+}
 class Graph extends Component {
     constructor(props) {
         super(props);
         this.state = {
             dataArray,
-            bigArray: []
+            bigArray: [],
+            animated: false
         }
     }
 
@@ -23,8 +26,12 @@ class Graph extends Component {
     }
 
     swapNumbers = () => {
-        this.setState({ bigArray: bubbleSort(this.state.dataArray) });
-        this.renderAnimation();
+        if (this.state.animated) {
+            return
+        } else {
+            this.setState({ bigArray: bubbleSort(this.state.dataArray) });
+            this.renderAnimation();
+        }
     }
 
     renderAnimation = () => {
@@ -34,15 +41,16 @@ class Graph extends Component {
             i++
             if (i >= this.state.bigArray.length) {
                 clearInterval(interval);
+                this.setState({ animated: true })
                 return
             }
-        }, 500)
+        }, 1)
 
     }
 
     render() {
         return (
-            <div className="graph">
+            <div className="graph" style={style}>
                 {this.renderToGraph()}
                 <button className="btn btn-primary" onClick={this.swapNumbers}>Click</button>
             </div>
