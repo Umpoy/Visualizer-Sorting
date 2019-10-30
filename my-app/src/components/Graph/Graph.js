@@ -20,12 +20,12 @@ class Graph extends Component {
     renderToGraph() {
         return this.state.dataArray.map((item) => {
             return (
-                <Bar item={item} />
+                <Bar item={item} length={this.state.dataArray.length} />
             )
         })
     }
 
-    swapNumbers = () => {
+    sortNumbers = () => {
         if (this.state.animated) {
             return
         } else {
@@ -44,15 +44,14 @@ class Graph extends Component {
                 this.setState({ animated: true })
                 return
             }
-        }, 1)
-
+        }, 100)
     }
 
     render() {
         return (
             <div className="graph" style={style}>
                 {this.renderToGraph()}
-                <button className="btn btn-primary" onClick={this.swapNumbers}>Click</button>
+                <button className="btn btn-primary" onClick={this.sortNumbers}>Sort Array</button>
             </div>
 
         )

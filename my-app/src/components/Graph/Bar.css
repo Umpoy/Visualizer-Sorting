@@ -1,3 +1,4 @@
 .bar {
     background-color: rgb(192, 59, 192);
+    display: inline-flex;
 }
