@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const algorithmReducer = () => {
     return [
         { name: 'bubble' },
@@ -11,3 +13,8 @@ const selectedAlgorithmReducer = (selectedAlgorithm = null, action) => {
     }
     return selectedAlgorithm;
 };
+
+export default combineReducers({
+    algorithm: algorithmReducer,
+    selectedAlgorithm: selectedPokemonReducer
+});
