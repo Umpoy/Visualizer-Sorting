@@ -5,7 +5,7 @@ import dataArray from '../helper/data';
 import bubbleSort from '../algorithms/bubble';
 
 const style = {
-    height: '50vh'
+    height: '100vh'
 }
 class Graph extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class Graph extends Component {
                 this.setState({ animated: true })
                 return
             }
-        }, 100)
+        }, 10)
     }
 
     render() {
