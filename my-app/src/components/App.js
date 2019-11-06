@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Header/Header';
+import Header from './Nav/Nav';
 import Main from './Graph/Graph';
 
 class App extends Component {

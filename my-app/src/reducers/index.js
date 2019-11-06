@@ -16,5 +16,5 @@ const selectedAlgorithmReducer = (selectedAlgorithm = null, action) => {
 
 export default combineReducers({
     algorithm: algorithmReducer,
-    selectedAlgorithm: selectedPokemonReducer
+    selectedAlgorithm: selectedAlgorithmReducer
 });
